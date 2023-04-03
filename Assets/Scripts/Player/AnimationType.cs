@@ -2,11 +2,11 @@
 {
     public enum AnimationType
     {
-        idle = 0,
-        walk = 1,
-        run = 2,
+        Idle = 0,
+        Walk = 1,
+        Run = 2,
         Jump = 3,
-        attack = 4,
+        Attack = 4,
         
     }
 }

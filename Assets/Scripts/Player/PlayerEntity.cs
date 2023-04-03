@@ -41,10 +41,6 @@ namespace Player
 
         private Vector2 _movement;
 
-        private void Awake()
-        {
-            _shadow.color = new Color(0, 0, 0);
-        }
 
         private void Start()
         {
@@ -67,9 +63,9 @@ namespace Player
 
         private void UpdateAnimations()
         {
-            _animator.PlayAnimation(AnimationType.idle, true);
-            _animator.PlayAnimation(AnimationType.walk, _movement.magnitude > 0);
-            // _animator.PlayAnimation(AnimationType.attack, _isJumping);
+            _animator.PlayAnimation(AnimationType.Idle, true);
+            _animator.PlayAnimation(AnimationType.Walk, _movement.magnitude > 0);
+            _animator.PlayAnimation(AnimationType.Jump, _isJumping);
         }
 
         public void MoveHorizontally(float direction)
@@ -158,7 +154,7 @@ namespace Player
 
         public void StartAttack()
         {
-            if (_animator.PlayAnimation(AnimationType.attack, true))
+            if (!_animator.PlayAnimation(AnimationType.Attack, true))
                 return;
             _animator.ActionRequested += Attack;
             _animator.AnimationEnded += EndAttack;
@@ -173,7 +169,7 @@ namespace Player
         {
             _animator.ActionRequested -= Attack;
             _animator.AnimationEnded -= EndAttack;
-            _animator.PlayAnimation(AnimationType.attack, false);
+            _animator.PlayAnimation(AnimationType.Attack, false);
         }
     }
 }

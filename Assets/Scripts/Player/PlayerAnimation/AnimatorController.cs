@@ -14,10 +14,10 @@ namespace Player.PlayerAnimation
         {
             if (!active)
             {
-                if (_currentAnimationType == AnimationType.idle || _currentAnimationType != animationType)
+                if (_currentAnimationType == AnimationType.Idle || _currentAnimationType != animationType)
                     return false;
 
-                _currentAnimationType = AnimationType.idle;
+                _currentAnimationType = AnimationType.Idle;
                 PlayAnimation(_currentAnimationType);
                 return false;
             }

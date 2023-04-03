@@ -36,11 +36,11 @@ namespace Player.PlayerAnimation
         {
             return animationType switch
             {
-                AnimationType.idle => _idleAnimationKey,
-                AnimationType.walk => _walkAnimationKey,
-                AnimationType.run => _runAnimationKey,
+                AnimationType.Idle => _idleAnimationKey,
+                AnimationType.Walk => _walkAnimationKey,
+                AnimationType.Run => _runAnimationKey,
                 AnimationType.Jump => _jumpAnimationKey,
-                AnimationType.attack => _attackAnimationKey,
+                AnimationType.Attack => _attackAnimationKey,
                 _ => _idleAnimationKey
             };
         }
