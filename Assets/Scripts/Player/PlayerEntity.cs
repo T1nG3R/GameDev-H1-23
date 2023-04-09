@@ -2,6 +2,7 @@ using Core.Movement.Controller;
 using Core.Movement.Data;
 using Core.Tools;
 using Player.PlayerAnimation;
+using StatsSystem;
 using UnityEngine;
 
 namespace Player
@@ -19,10 +20,10 @@ namespace Player
         private Jumper _jumper;
 
 
-        private void Start()
+        public void Initialize(IStatValueGiver statValueGiver)
         {
             _rigidbody = GetComponent<Rigidbody2D>();
-            _directionalMover = new DirectionalMover(_rigidbody, _directionalMovementData);
+            _directionalMover = new DirectionalMover(_rigidbody, _directionalMovementData, statValueGiver);
             _jumper = new Jumper(_rigidbody, _jumpData, _directionalMovementData.MaxSize);
         }
 
@@ -59,7 +60,7 @@ namespace Player
         }
 
         public void Jump() => _jumper.Jump();
-        
+
         public void StartAttack()
         {
             if (!_animator.PlayAnimation(AnimationType.Attack, true))
